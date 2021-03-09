@@ -12,6 +12,8 @@ namespace SourceGeneratorPOC
     public static class Messages
     {
         public const string Hello = ""Hello from generated code!"";
+
+        private static void UnusedMethod() { } // Issue raised here
     }
 }
 ";
@@ -20,6 +22,6 @@ namespace SourceGeneratorPOC
             context.AddSource("Greetings", SourceText.From(MessagesCode, Encoding.UTF8));
         }
 
-        public void Initialize(GeneratorInitializationContext context) { }
+        public void Initialize(GeneratorInitializationContext context) { /* Nothing to do here */ }
     }
 }
